@@ -6,7 +6,7 @@
  * Fecha: 26-2-21
  */
 
-import { io } from 'socket.io';
+const io = require('socket.io');
 
 // Referencias a elementos del DOM
 const roomSelectionContainer = document.getElementById('room-selection-container')
