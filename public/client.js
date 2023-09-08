@@ -18,7 +18,12 @@ const localVideoComponent = document.getElementById('local-video')
 const socket = io()
 const mediaConstraints = {
   audio: true,
-  video: true,
+  //video: true,
+video: {
+    width: { min: 640, ideal: 1920 },
+    height: { min: 400, ideal: 1080 },
+    aspectRatio: { ideal: 1.7777777778 },
+  }
 }
 const offerOptions = {
   offerToReceiveVideo: 1,
@@ -40,8 +45,29 @@ let roomId;
 // Servidores ICE usados. Solo servidores STUN en este caso.
 const iceServers = {
   iceServers: [
-    { urls: 'stun:stun.l.google.com:19302' },
-    { urls: 'stun:stun1.l.google.com:19302' },
+	{
+      urls: "stun:stun.relay.metered.ca:80",
+    },
+    {
+      urls: "turn:a.relay.metered.ca:80",
+      username: "4e72615596b94f904f47f63e",
+      credential: "ynxpP9SmAb7iSUz5",
+    },
+    {
+      urls: "turn:a.relay.metered.ca:80?transport=tcp",
+      username: "4e72615596b94f904f47f63e",
+      credential: "ynxpP9SmAb7iSUz5",
+    },
+    {
+      urls: "turn:a.relay.metered.ca:443",
+      username: "4e72615596b94f904f47f63e",
+      credential: "ynxpP9SmAb7iSUz5",
+    },
+    {
+      urls: "turn:a.relay.metered.ca:443?transport=tcp",
+      username: "4e72615596b94f904f47f63e",
+      credential: "ynxpP9SmAb7iSUz5",
+    },
   ],
 }
 
